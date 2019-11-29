@@ -82,10 +82,85 @@ print(arr12)
 arr12[2] = 55
 print(arr12)
 
+/**
+ *  数组元素删除
+ */
+
+arr12 .remove(at: 0)
+print(arr12)
+
+arr12 .removeFirst()
+arr12 .removeLast()
+print(arr12)
+
+var arr13 = [1,2,3,4,5,6,7]
+// 是否保持容量如果为true 即使数组删除了，容量也依然存在
+arr13 .removeAll(keepingCapacity: true)
+print(arr13)
+print(arr13.capacity)
+
+//移除某区间位置的数组元素
+var arr14 = [1,2,3,4,5,0,5,6,7,0,8,8]
+// [0,2)
+arr14 .removeSubrange(0..<2)
+print(arr14)
+
+// 截取前五个元素，将第一个元素变为9
+arr14 .replaceSubrange(0...4, with: [9])
+print(arr14)
+
+
+// 其实range 就是半闭区间
+var range = 0...5
+//print(range)
 
 
 
+// MARK:数组的批量操作
+var  a1 = [1,3,5,6]
+// 这个相当于在数组前插入数据
+// a1[0...1] = [55,99,22]
+a1.replaceSubrange(0...1, with: [55,99,22])
 
+print(a1)
+
+// 遍历数组 两种方式皆👌
+for i in 0..<a1.count{
+    print(a1[i])
+}
+
+for obj in a1{
+    print(obj)
+}
+
+// 取出数组中某个区间范围的值
+for x  in a1[0...3]{
+    print(x)
+}
+
+
+//MARK: switch 语句
+// 可以判断对象类型，OC 必须是整数
+var rank = "A"
+
+switch rank {
+    
+case "A":
+    print("A")
+default:
+    print("other")
+}
+
+// 区间和元组匹配
+var num = 10
+switch num{
+case 1...9:
+    print("个位数")
+case 10...99:
+    print("十位数")
+default:
+    print("其他数")
+}
 
 
 
